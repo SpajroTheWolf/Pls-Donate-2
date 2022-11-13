@@ -743,8 +743,8 @@ end)
 webhookTab:Button("Test", "Sends a test message to your webhook to verify it is working", function()
     if getgenv().settings.webhookBox then
         webhook("Spajro's Donation Bot v2.0.1")
-	webhook("[Thank You For Using]")
-	webhook("[This is test]")
+	webhook("Thank You For Using")
+	webhook("This is test")
     end
 end)
 

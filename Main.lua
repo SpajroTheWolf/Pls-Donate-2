@@ -745,7 +745,6 @@ webhookTab:Button("Test", "Sends a test message to your webhook to verify it is 
         webhook("Spajro's Donation Bot v2.0.1")
 	webhook("----------[Thank You For Using]----------")
 	webhook("----------[This is test]----------")
-	webhook("Raised": ..newRaised)
     end
 end)
 

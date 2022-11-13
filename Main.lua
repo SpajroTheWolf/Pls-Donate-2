@@ -742,7 +742,8 @@ end)
 
 webhookTab:Button("Test", "Sends a test message to your webhook to verify it is working", function()
     if getgenv().settings.webhookBox then
-        webhook("Your webhook is working!")
+        webhook("Script Made By Spajro")
+	webhook("Enjoy")
     end
 end)
 

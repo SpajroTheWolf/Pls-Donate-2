@@ -743,7 +743,6 @@ end)
 webhookTab:Button("Test", "Sends a test message to your webhook to verify it is working", function()
     if getgenv().settings.webhookBox then
         webhook("**Spajro's Donation Bot v2.0.1**")
-	webhook(" :Robux: ")
 	webhook("This is test")
     end
 end)
@@ -1009,7 +1008,7 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function(newRaised)
             end
             if not sent then
                 local amount = newRaised - RaisedC
-                webhook(tostring("💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")"))
+                webhook(tostring("**💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")**"))
             end
             RaisedC = newRaised
             

@@ -1009,7 +1009,7 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function(newRaised)
             end
             if not sent then
                 local amount = newRaised - RaisedC
-                webhook(tostring("💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")"))
+                webhook(tostring("💰💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")"))
             end
             RaisedC = newRaised
             

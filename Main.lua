@@ -992,28 +992,19 @@ if getgenv().settings.autoBeg then
     spamming = task.spawn(begging)
 end
 local RaisedC = Players.LocalPlayer.leaderstats.Raised.value
-Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function(newRaised)
+Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
+    hopSet()
     if getgenv().settings.webhookToggle and getgenv().settings.webhookBox then
-        task.spawn(function()
-            local sent = false
-            task.wait(1)
-            local logs = game:GetService("LogService"):GetLogHistory()
-            for i = 0, 4 do
-                if string.find(logs[#logs - i].message, game.Players.LocalPlayer.DisplayName) then
-                    local message = logs[#logs - i].message
-                    local amount = string.gsub(string.match(message, 'tipped (.*) Robux'), ",", "")
-                    webhook(tostring(message.." *[After Tax: "..math.floor(tonumber(amount) * 0.6).."]* (Total: "..newRaised..")"))
-                    sent = true
-                    break
-                end
-            end
-            if not sent then
-                local amount = newRaised - RaisedC
-                webhook(tostring("💰💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")"))
-            end
-            RaisedC = newRaised
-            
-            -- To prevent duplicates just in case
+        local LogService = Game:GetService("LogService")
+        local logs = LogService:GetLogHistory()
+        --Tries to grabs donation message from logs
+        if string.find(logs[#logs].message, Players.LocalPlayer.DisplayName) then
+            webhook(tostring(logs[#logs].message.. " (Total: ".. Players.LocalPlayer.leaderstats.Raised.value.. ")"))
+        else
+            webhook(tostring("💰 Somebody tipped ".. Players.LocalPlayer.leaderstats.Raised.value - RaisedC.. " Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.value.. ")"))
+        end
+    end       
+          -- To prevent duplicates just in case
             for i = 0, 4 do
                 print("")
             end

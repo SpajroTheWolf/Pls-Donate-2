@@ -991,7 +991,6 @@ end
 if getgenv().settings.autoBeg then
     spamming = task.spawn(begging)
 end
-
 local RaisedC = Players.LocalPlayer.leaderstats.Raised.value
 Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function(newRaised)
     if getgenv().settings.webhookToggle and getgenv().settings.webhookBox then
@@ -1013,8 +1012,8 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function(newRaised)
                 webhook(tostring("💰💰 Somebody tipped "..amount.." Robux to "..Players.LocalPlayer.DisplayName.." *[After Tax: "..math.floor(amount * 0.6).."]* (Total: " ..newRaised..")"))
             end
             RaisedC = newRaised
-  
-          -- To prevent duplicates just in case
+            
+            -- To prevent duplicates just in case
             for i = 0, 4 do
                 print("")
             end
